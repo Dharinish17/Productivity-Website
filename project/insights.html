@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insights - TaskGamer</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="insights.css" />
+    <link rel="icon" href="/favicon-32x32.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> <!-- font awesome -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.7.1/jspdf.plugin.autotable.min.js"></script>
+  </head>
+  <body>
+    <div class="app">
+      <nav class="sidebar">
+        <div class="logo">
+          <h1>TaskGamer</h1>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="tasks.html">Tasks</a></li>
+          <li><a href="goals.html">Goals</a></li>
+          <li><a href="timer.html">Focus Timer</a></li>
+          <li class="active"><a href="insights.html">Insights</a></li>
+          <li><a href="notes.html">Notes</a></li>
+          <li><a href="calendar.html">Calendar</a></li>
+        </ul>
+      </nav>
+
+      <main class="main-content">
+        <header class="top-bar">
+          <i class="fas fa-bars hamburger-menu" id="hamburgerMenu"></i>
+          <h2>Productivity Insights</h2>
+          <div class="actions">
+            <p>THEMES</p>
+            <button class="theme-toggle" id="themeToggle">🌙</i></button>
+            <!-- <button class="notifications"><i class="fa-solid fa-heart fa-beat" style="color: #d00101;"></i></button> -->
+          </div>
+        </header>
+
+        <div class="insights-grid">
+          <div class="insights-header">
+            <button id="downloadReport" class="primary-button">
+              Download Report
+            </button>
+          </div>
+
+          <div class="productivity-overview">
+            <div class="chart-container">
+              <h3>Task Completion Rate</h3>
+              <canvas id="taskCompletionChart"></canvas>
+            </div>
+            <div class="chart-container">
+              <h3>Focus Time Distribution</h3>
+              <canvas id="focusTimeChart"></canvas>
+            </div>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon">✅</div>
+              <div class="stat-info">
+                <span class="stat-label">Tasks Completed</span>
+                <span class="stat-value" id="tasksCompleted">0</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">⏱️</div>
+              <div class="stat-info">
+                <span class="stat-label">Focus Minutes</span>
+                <span class="stat-value" id="focusMinutes">0</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">🎯</div>
+              <div class="stat-info">
+                <span class="stat-label">Goals Achieved</span>
+                <span class="stat-value" id="goalsAchieved">0</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">🔥</div>
+              <div class="stat-info">
+                <span class="stat-label">Habit Streak</span>
+                <span class="stat-value" id="habitStreak"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="productivity-trends">
+            <h3>Productivity Score Trend</h3>
+            <canvas id="productivityTrendChart"></canvas>
+          </div>
+
+          <div class="category-analysis">
+            <h3>Task Categories</h3>
+            <canvas id="categoryChart"></canvas>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="insights.js"></script>
+  </body>
+</html>

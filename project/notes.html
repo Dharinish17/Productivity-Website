@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes - TaskGamer</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="notes.css" />
+    <link rel="icon" href="/favicon-32x32.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> <!-- font awesome -->
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.2/dist/quill.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.2/dist/quill.snow.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app">
+      <nav class="sidebar">
+        <div class="logo">
+          <h1>TaskGamer</h1>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="tasks.html">Tasks</a></li>
+          <li><a href="goals.html">Goals</a></li>
+          <li><a href="timer.html">Focus Timer</a></li>
+          <li><a href="insights.html">Insights</a></li>
+          <li class="active"><a href="notes.html">Notes</a></li>
+          <li><a href="calendar.html">Calendar</a></li>
+        </ul>
+      </nav>
+
+      <main class="main-content">
+        <header class="top-bar">
+          <i class="fas fa-bars hamburger-menu" id="hamburgerMenu"></i>
+          <h2>Notes</h2>
+          <div class="actions">
+            <p>THEMES</p>
+            <button class="theme-toggle" id="themeToggle">🌙</i></button>
+            <!-- <button class="notifications"><i class="fa-solid fa-heart fa-beat" style="color: #d00101;"></i></button> -->
+          </div>
+        </header>
+
+        <div class="notes-container">
+          <div class="notes-sidebar">
+            <div class="notes-header">
+              <button id="newNoteBtn" class="primary-button">New Note</button>
+              <input
+                type="text"
+                id="searchNotes"
+                placeholder="Search notes..."
+              />
+            </div>
+            <div class="notes-list" id="notesList"></div>
+          </div>
+
+          <div class="note-editor">
+            <div class="editor-header">
+              <input type="text" id="noteTitle" placeholder="Note title..." />
+              <div class="editor-actions">
+                <button id="saveNoteBtn" class="primary-button">Save</button>
+                <button id="deleteNoteBtn" class="danger-button">Delete</button>
+              </div>
+            </div>
+            <div id="editor"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Note Modal -->
+    <div class="modal" id="noteModal">
+      <div class="modal-content">
+        <h3>Create New Note</h3>
+        <form id="noteForm">
+          <div class="form-group">
+            <label for="modalNoteTitle">Title</label>
+            <input type="text" id="modalNoteTitle" required placeholder="Enter note title..." />
+          </div>
+          <div class="form-actions">
+            <button type="button" class="secondary-button" onclick="closeNoteModal()">
+              Cancel
+            </button>
+            <button type="submit" class="primary-button">Create Note</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="notes.js"></script>
+  </body>
+</html>

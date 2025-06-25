@@ -1,0 +1,423 @@
+/* Calendar Page Styles */
+.calendar-container {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+  height: calc(100vh - 140px);
+}
+
+.calendar-sidebar {
+  background-color: var(--card-background);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.quick-add-event {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quick-add-event input[type='text'],
+.quick-add-event input[type='datetime-local'],
+.quick-add-event select,
+.quick-add-event textarea {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.3rem;
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+#quickAddBtn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+#quickAddBtn:hover {
+  background-color: var(--secondary-color);
+}
+
+.calendar-filters h3,
+.upcoming-events h3 {
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.upcoming-events {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.event-item {
+  padding: 1rem;
+  background-color: var(--background-color);
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.event-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.event-time {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.calendar-main {
+  background-color: var(--card-background);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* FullCalendar Customization */
+.fc {
+  height: 100%;
+}
+
+.fc-theme-standard th,
+.fc-theme-standard td {
+  border-color: var(--border-color);
+}
+
+.fc-theme-standard .fc-scrollgrid {
+  border-color: var(--border-color);
+}
+
+.fc-theme-standard td {
+  background-color: var(--card-background);
+}
+
+.fc-theme-standard th {
+  background-color: var(--background-color);
+  color: var(--text-primary);
+}
+
+.fc-button-primary {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.fc-button-primary:hover {
+  background-color: var(--secondary-color) !important;
+  border-color: var(--secondary-color) !important;
+}
+
+.fc-event {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.fc-event:hover {
+  transform: scale(1.02);
+}
+
+/* Event Colors */
+.event-task {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.event-goal {
+  background-color: #10b981;
+  border-color: #10b981;
+}
+
+.event-habit {
+  background-color: #f59e0b;
+  border-color: #f59e0b;
+}
+
+.event-other {
+  background-color: #8b5cf6;
+  border-color: #8b5cf6;
+}
+
+/* Habit Status Colors */
+.habit-completed {
+  background-color: #10b981 !important;
+  border-color: #059669 !important;
+}
+
+.habit-pending {
+  background-color: #ef4444 !important;
+  border-color: #dc2626 !important;
+}
+
+.fc-event.habit-completed .fc-event-title,
+.fc-event.habit-pending .fc-event-title {
+  padding: 2px 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fc-event.habit-completed:hover,
+.fc-event.habit-pending:hover {
+  opacity: 0.9;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background-color: var(--card-background);
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content h3 {
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.form-group input[type='text'],
+.form-group input[type='datetime-local'],
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.form-group input[type='text']:focus,
+.form-group input[type='datetime-local']:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.form-group textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.form-actions button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.form-actions .primary-button {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.form-actions .primary-button:hover {
+  background-color: var(--secondary-color);
+}
+
+.form-actions .secondary-button {
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.form-actions .secondary-button:hover {
+  background-color: #ddd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .calendar-container {
+    grid-template-columns: 1fr;
+  }
+
+  .calendar-sidebar {
+    display: none;
+  }
+}
+
+/* Task Status Colors */
+.task-in-progress {
+  background-color: #3b82f6 !important; /* Blue */
+  border-color: #2563eb !important;
+  color: white;
+}
+
+.task-completed {
+  background-color: #10b981 !important; /* Green */
+  border-color: #059669 !important;
+  color: white;
+}
+
+/* Goal Status Colors */
+.goal-in-progress {
+  background-color: #3b82f6 !important; /* Blue */
+  border-color: #2563eb !important;
+  color: white;
+}
+
+.goal-completed {
+  background-color: #10b981 !important; /* Green */
+  border-color: #059669 !important;
+  color: white;
+}
+
+/* Default Task Color */
+.task-default {
+  /* background-color: var(--card-background) !important;  Use card background color  */
+  background-color: orange;
+  border-color: var(--border-color) !important; /* Use border color */
+  color: var(--text-primary); /* Use primary text color */
+}
+
+/* General Calendar Styles */
+.calendar-container {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.calendar-header h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.task-default {
+  background-color: orange;
+  color: black;
+  opacity: 1; /* Ensure the orange color is fully opaque */
+}
+
+.task-default:hover {
+  background-color: orange; /* Keep the background color orange */
+  opacity: 0.8; /* Reduce opacity slightly on hover */
+}
+
+.goal-default {
+  background-color: purple;
+  border-color: var(--border-color) !important; /* Use border color */
+  color: var(--text-primary); /* Use primary text color */
+}
+
+
+/* Hamburger Menu */
+.hamburger-menu {
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--text-primary);
+  display: none; 	/* Initially hide on larger screens */
+}
+
+#hamburgerMenu{
+	display:none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: none;
+    grid-column: 1 / -1;
+  }
+
+  .sidebar.active {
+    display: flex;
+  }
+
+  .top-bar {
+    grid-column: 1 / -1;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hamburger-menu {
+    display: block; /* Show on small screens */
+  }
+
+	#hamburgerMenu{
+	display:block;
+}
+}

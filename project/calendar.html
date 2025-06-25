@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Calendar - TaskGamer</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="calendar.css" />
+        <link rel="icon" href="/favicon-32x32.png" type="image/png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> <!-- font awesome -->
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+        <link
+          href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css"
+          rel="stylesheet"
+        />
+      </head>
+      <body>
+        <div class="app">
+          <nav class="sidebar">
+            <div class="logo">
+              <h1>TaskGamer</h1>
+            </div>
+            <ul class="nav-links">
+              <li><a href="index.html">Dashboard</a></li>
+              <li><a href="tasks.html">Tasks</a></li>
+              <li><a href="goals.html">Goals</a></li>
+              <li><a href="timer.html">Focus Timer</a></li>
+              <li><a href="insights.html">Insights</a></li>
+              <li><a href="notes.html">Notes</a></li>
+              <li class="active"><a href="calendar.html">Calendar</a></li>
+            </ul>
+          </nav>
+
+          <main class="main-content">
+            <header class="top-bar">
+              <i class="fas fa-bars hamburger-menu" id="hamburgerMenu"></i>
+              <h2>Calendar</h2>
+              <div class="actions">
+                <p>THEMES</p>
+                <button class="theme-toggle" id="themeToggle">🌙</button>
+                <!-- <button class="notifications"><i class="fa-solid fa-heart fa-beat" style="color: #d00101;"></i></button> -->
+              </div>
+            </header>
+
+            <div class="calendar-container">
+              <div class="calendar-sidebar">
+                <div class="quick-add-event">
+                  <input
+                    type="text"
+                    id="quickAddTitle"
+                    placeholder="Add event title"
+                  />
+                  <textarea
+                    id="quickAddDescription"
+                    placeholder="Add event description"
+                  ></textarea>
+                  <input type="datetime-local" id="quickAddDate" />
+                  <select id="quickAddCategory">
+                    <option value="task">Task</option>
+                    <option value="goal">Goal</option>
+                  </select>
+                  <button id="quickAddBtn" class="primary-button">
+                    Quick Add
+                  </button>
+                </div>
+
+                <!-- Removed Calendar Filters -->
+                <!--
+                <div class="calendar-filters">
+                  <h3>Filters</h3>
+                  <div class="filter-group">
+                    <label>
+                      <input type="checkbox" checked data-filter="tasks" />
+                      Tasks
+                    </label>
+                    <label>
+                      <input type="checkbox" checked data-filter="goals" />
+                      Goals
+                    </label>
+                    <label>
+                        <input type="checkbox" checked data-filter="habits" />
+                      Habits
+                    </label>
+                  </div>
+                </div>
+                -->
+
+                <div class="upcoming-events">
+                  <h3>Upcoming Events</h3>
+                  <div id="upcomingEventsList"></div>
+                </div>
+              </div>
+
+              <div class="calendar-main">
+                <div id="calendar"></div>
+              </div>
+            </div>
+          </main>
+        </div>
+
+        <!-- Event Modal -->
+        <div class="modal" id="eventModal">
+          <div class="modal-content">
+            <h3>Add Event</h3>
+            <form id="eventForm">
+              <div class="form-group">
+                <label for="eventTitle">Title</label>
+                <input type="text" id="eventTitle" required />
+              </div>
+              <div class="form-group">
+                <label for="eventDescription">Description</label>
+                <textarea id="eventDescription"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="eventStart">Start</label>
+                <input type="datetime-local" id="eventStart" required />
+              </div>
+              <div class="form-group">
+                <label for="eventCategory">Category</label>
+                <select id="eventCategory">
+                  <option value="task">Task</option>
+                  <option value="goal">Goal</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-actions">
+                <button
+                  type="button"
+                  class="secondary-button"
+                  onclick="closeEventModal()"
+                >
+                  Cancel
+                </button>
+                <button type="submit" class="primary-button">
+                  Save Event
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <script src="calendar.js"></script>
+      </body>
+    </html>

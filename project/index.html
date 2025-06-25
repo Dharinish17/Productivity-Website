@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>TaskGamer - Gamified Productivity</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="icon" href="/favicon-32x32.png" type="image/png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> <!-- font awesome -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      </head>
+      <body>
+        <div class="app">
+          <nav class="sidebar">
+            <div class="logo">
+              <h1>TaskGamer</h1>
+            </div>
+            <ul class="nav-links">
+              <li class="active"><a href="index.html">Dashboard</a></li>
+              <li><a href="tasks.html">Tasks</a></li>
+              <li><a href="goals.html">Goals</a></li>
+              <li><a href="timer.html">Focus Timer</a></li>
+              <li><a href="insights.html">Insights</a></li>
+              <li><a href="notes.html">Notes</a></li>
+              <li><a href="calendar.html">Calendar</a></li>
+            </ul>
+            <div class="user-profile">
+              <input
+                type="file"
+                id="profilePhotoUpload"
+                accept="image/*"
+                style="display: none"
+              />
+              <label for="profilePhotoUpload" class="avatar-upload-label">
+                <img
+                  src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop"
+                  alt="User Profile"
+                  class="avatar"
+                  id="profilePhoto"
+                />
+              </label>
+              <div class="username">
+                <input
+                  type="text"
+                  id="usernameInput"
+                  placeholder="Your Name"
+                />
+                <button id="saveUsername">Save</button>
+              </div>
+            </div>
+          </nav>
+
+          <main class="main-content">
+            <header class="top-bar">
+              <i class="fas fa-bars hamburger-menu" id="hamburgerMenu"></i>
+              <h2>Dashboard</h2>
+              <div class="actions">
+                <p>THEMES</p>
+                <button class="theme-toggle" id="themeToggle">🌙</i></button>
+                <!-- <button class="notifications" id="notificationsBtn"><i class="fa-solid fa-heart fa-beat" style="color: #d00101;"></i></button> -->
+              </div>
+            </header>
+
+            <div class="dashboard-grid">
+              <!-- Update the task summary cards to be clickable -->
+              <div class="task-summary">
+                <div
+                  class="stat-card clickable"
+                  id="pendingTasksCard"
+                  onclick="filterTasks('pending')"
+                >
+                  <div class="stat-icon pending">⏳</div>
+                  <div class="stat-info">
+                    <span class="stat-label">Pending Tasks</span>
+                    <span class="stat-value" id="pendingTasks">0</span>
+                  </div>
+                </div>
+                <div
+                  class="stat-card clickable"
+                  id="completedTasksCard"
+                  onclick="filterTasks('completed')"
+                >
+                  <div class="stat-icon completed">✅</div>
+                  <div class="stat-info">
+                    <span class="stat-label">Completed Tasks</span>
+                    <span class="stat-value" id="completedTasks">0</span>
+                  </div>
+                </div>
+                <div
+                  class="stat-card clickable"
+                  id="inProgressTasksCard"
+                  onclick="filterTasks('in-progress')"
+                >
+                  <div class="stat-icon in-progress">🔄</div>
+                  <div class="stat-info">
+                    <span class="stat-label">In Progress</span>
+                    <span class="stat-value" id="inProgressTasks">0</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="quick-add">
+                <h3>Quick Add Task</h3>
+                <form id="quickAddForm">
+                  <input
+                    type="text"
+                    id="taskTitle"
+                    placeholder="Task title"
+                    required
+                  />
+                  <select id="taskCategory">
+                    <option value="work">Work</option>
+                    <option value="personal">Personal</option>
+                    <option value="study">Study</option>
+                    <option value="health">Health</option>
+                    <option value="other">Other</option>
+                  </select>
+                  <input type="date" id="taskDueDate" required />
+                  <button type="submit" class="primary-button">Add Task</button>
+                </form>
+              </div>
+
+              <div class="productivity-chart">
+                <h3>Weekly Productivity</h3>
+                <canvas id="productivityChart"></canvas>
+              </div>
+
+              <div class="quick-links">
+                <h3>Quick Links</h3>
+                <div class="links-grid">
+                  <a href="timer.html" class="quick-link">
+                    <span class="icon">⏱️</span>
+                    <span>Focus Timer</span>
+                  </a>
+                  <a href="goals.html" class="quick-link">
+                    <span class="icon">🎯</span>
+                    <span>Goals</span>
+                  </a>
+                  <a href="notes.html" class="quick-link">
+                    <span class="icon">📝</span>
+                    <span>Notes</span>
+                  </a>
+                  <a href="calendar.html" class="quick-link">
+                    <span class="icon">🗓️</span>
+                    <span>Calendar</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+        <script src="app.js"></script>
+      </body>
+    </html>

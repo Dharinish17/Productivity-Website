@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goals - TaskGamer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="goals.css">
+    <link rel="icon" href="/favicon-32x32.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> <!-- font awesome -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app">
+        <nav class="sidebar">
+            <div class="logo">
+                <h1>TaskGamer</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="tasks.html">Tasks</a></li>
+                <li class="active"><a href="goals.html">Goals</a></li>
+                <li><a href="timer.html">Focus Timer</a></li>
+                <li><a href="insights.html">Insights</a></li>
+                <li><a href="notes.html">Notes</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <i class="fas fa-bars hamburger-menu" id="hamburgerMenu"></i>
+                <h2>Goal Tracker</h2>
+                <div class="actions">
+                    <p>THEMES</p>
+                    <button class="theme-toggle" id="themeToggle">🌙</button>
+                    <!-- <button class="notifications"><i class="fa-solid fa-heart fa-beat" style="color: #d00101;"></i></button> -->
+                </div>
+            </header>
+
+            <div class="goals-grid">
+                <div class="goals-summary">
+                    <div class="summary-card">
+                        <div class="summary-icon">🎯</div>
+                        <div class="summary-info">
+                            <span class="summary-label">Active Goals</span>
+                            <span class="summary-value" id="activeGoals">0</span>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon">✨</div>
+                        <div class="summary-info">
+                            <span class="summary-label">Completed Goals</span>
+                            <span class="summary-value" id="completedGoals">0</span>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon">📈</div>
+                        <div class="summary-info">
+                            <span class="summary-label">Success Rate</span>
+                            <span class="summary-value" id="successRate">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="goals-container">
+                    <div class="goals-header">
+                        <h3>Your Goals</h3>
+                        <button id="addGoalBtn" class="primary-button">Add New Goal</button>
+                    </div>
+                    <div class="goals-list" id="goalsList"></div>
+                </div>
+
+                <div class="goal-progress">
+                    <h3>Goal Progress Overview</h3>
+                    <canvas id="goalProgressChart"></canvas>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Goal Modal -->
+    <div class="modal" id="goalModal" role="dialog" aria-labelledby="modalTitle">
+        <div class="modal-content">
+            <h3 id="modalTitle">Add New Goal</h3>
+            <form id="goalForm">
+                <div class="form-group">
+                    <label for="goalTitle">Title</label>
+                    <input type="text" id="goalTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="goalDescription">Description</label>
+                    <textarea id="goalDescription"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="goalCategory">Category</label>
+                    <select id="goalCategory" required>
+                        <option value="personal">Personal</option>
+                        <option value="career">Career</option>
+                        <option value="health">Health</option>
+                        <option value="education">Education</option>
+                        <option value="financial">Financial</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="goalDeadline">Deadline</label>
+                    <input type="date" id="goalDeadline" required>
+                </div>
+                <div class="form-group">
+                    <label for="goalMilestones">Milestones (one per line)</label>
+                    <textarea id="goalMilestones" placeholder="Enter milestones..."></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="secondary-button" onclick="closeGoalModal()">Cancel</button>
+                    <button type="submit" class="primary-button">Save Goal</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="goals.js"></script>
+</body>
+</html>
