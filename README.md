@@ -47,19 +47,6 @@ This hackathon was a great learning experience and helped me improve my problem-
 
 ---
 
-## 📈 Future Plans
-
-While *TaskGamer* performed well in its current form, I realized that features like *user authentication, **cloud storage, and a **proper backend database* (like Node.js + MongoDB or Firebase) would add significant value.
-
-### Planned Enhancements:
-- ✅ Full-stack conversion with backend support
-- ✅ User login/signup system
-- ✅ Cloud database for secure data storage
-- ✅ More advanced analytics
-- ✅ Better UI/UX with animations and performance improvements
-
----
-
 ## ⚠️ AI Assistance Disclaimer
 
 This project was *built with the help of AI tools* for faster prototyping during the hackathon.  
@@ -74,14 +61,7 @@ I plan to clean and refactor the codebase in future updates.
 
 ---
 
-## 📃 License
-
-This project is open source and free to use.  
-Feel free to fork and improve it!
-
----
-
 ## 🙌 Author
 
-Made with ❤️ by A.Dharinish  
+Made by A.Dharinish  
 https://github.com/Dharinish17
